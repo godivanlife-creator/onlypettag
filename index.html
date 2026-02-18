@@ -1,109 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GodiVanLife | 寵物網頁製作申請</title>
     <style>
-        :root { --brand-orange: #FF8C00; --bg-light: #FDFCFB; --text-dark: #333; }
-        body { font-family: 'PingFang TC', sans-serif; background-color: var(--bg-light); padding: 15px; margin: 0; }
-        .container { max-width: 480px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
-        
-        .header { text-align: center; margin-bottom: 20px; }
-        .header h1 { color: var(--brand-orange); margin: 0; font-size: 28px; }
-        
-        .link-section {
-            background: #FFF9F2;
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-        .link-title { font-weight: bold; color: var(--brand-orange); margin-bottom: 12px; display: block; }
-        .btn-group { display: flex; flex-direction: column; gap: 10px; }
-        .link-btn {
-            display: block;
-            background: #fff;
-            border: 1.5px solid var(--brand-orange);
-            color: var(--brand-orange);
-            padding: 12px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .link-btn:hover { background: var(--brand-orange); color: white; }
-
-        .section-title { border-left: 4px solid var(--brand-orange); padding-left: 10px; margin: 25px 0 10px; font-weight: bold; }
-        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 12px; box-sizing: border-box; font-size: 16px; }
-        .payment-info { background: #f9f9f9; padding: 15px; border-radius: 15px; font-size: 14px; line-height: 1.8; }
-        .hint { font-size: 12px; color: #d32f2f; margin: -10px 0 10px 5px; font-weight: bold; }
-        .submit-btn { background: var(--brand-orange); color: white; width: 100%; padding: 16px; border: none; border-radius: 35px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fdfaf5; }
+        .container { background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { color: #e67e22; text-align: center; margin-bottom: 5px; }
+        h2 { font-size: 1.1em; text-align: center; color: #7f8c8d; margin-bottom: 30px; }
+        .section { margin-bottom: 25px; border-left: 4px solid #e67e22; padding-left: 15px; }
+        h3 { color: #d35400; margin-top: 0; }
+        .payment-info { background: #fff9f2; padding: 15px; border-radius: 10px; border: 1px dashed #e67e22; margin-bottom: 15px; }
+        .btn { display: block; width: 100%; background: #f39c12; color: white; text-align: center; padding: 18px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 18px; margin-top: 20px; transition: background 0.3s; box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3); }
+        .btn:hover { background: #e67e22; }
+        .footer-links { text-align: center; margin-bottom: 20px; }
+        .footer-links a { color: #3498db; text-decoration: none; margin: 0 10px; font-size: 0.95em; }
+        ul { padding-left: 20px; font-size: 0.95em; color: #555; }
+        li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>GodiVanLife</h1>
-        <p style="font-size: 14px; color: #888;">NFC 客製化寵物智慧吊牌</p>
+    <h1>GodiVanLife</h1>
+    <h2>NFC 客製化寵物智慧吊牌</h2>
+
+    <div class="footer-links">
+        <a href="https://www.instagram.com/p/DU2mXaGk2gA/" target="_blank">📸 查看成品 Instagram</a><br>
+        <a href="https://godivanlife-creator.github.io/QQSUN/" target="_blank">👉 查看示範網頁</a>
     </div>
 
-    <div class="link-section">
-        <span class="link-title">📸 想看更多成品與範例？</span>
-        <div class="btn-group">
-            <a href="https://www.instagram.com/p/DU2mXaGk2gA/?igsh=MW9laDllbTBtY3ZwNQ==" target="_blank" class="link-btn">👉 查看成品 Instagram</a>
-            <a href="https://godivanlife-creator.github.io/QQSUN/" target="_blank" class="link-btn">👉 開啟示範網頁連結</a>
-        </div>
+    <hr style="border: 0.5px solid #eee; margin: 25px 0;">
+
+    <div class="section">
+        <h3>Step 1. 準備資訊</h3>
+        <ul>
+            <li>準備好寶貝最可愛的**正面照片**</li>
+            <li>確認要刻印的**英文姓名**與**緊急聯絡電話**</li>
+            <li>想好三個屬於寶貝的**個性標籤**（如：球控、爸寶）</li>
+        </ul>
     </div>
 
-    <form id="petForm">
-        <div class="section-title">Step 1. 製作內容</div>
-        <input type="text" id="petName" placeholder="寶貝姓名 (刻印僅限英文)" required>
-        <p class="hint">＊若填寫中文，維廷將自動翻譯成英文刻印</p>
-        <input type="tel" id="parentPhone" placeholder="家長緊急聯絡電話" required>
-        <input type="text" id="features" placeholder="寶貝特色 (例如：爸寶、球控)" required>
-        <input type="url" id="igLink" placeholder="寶貝的 IG 連結 (選填)">
-
-        <div class="section-title">Step 2. 付款核對</div>
+    <div class="section">
+        <h3>Step 2. 款式與付款</h3>
         <div class="payment-info">
-            🏦 銀行代碼：<strong>（812）台新銀行</strong><br>
-            💰 帳號：<strong>20721000317223</strong><br>
-            👤 戶名：<strong>蕭維廷</strong><br>
-            🏷️ 費用：一般款 $150 (圖案隨機) / 客製款 $475 (新春 7 折)
+            <p>🏦 銀行代碼：<strong>(812) 台新銀行</strong></p>
+            <p>💰 帳號：<strong>20721000317223</strong></p>
+            <p>👤 戶名：<strong>GodiVanLife</strong></p>
+            <p>🏷️ 費用：一般款 $150 / 客製款 $475 (新春 7 折)</p>
         </div>
-        <input type="text" id="bankLastFive" placeholder="您的匯款帳號後五碼" maxlength="5" required>
+        <p style="font-size: 0.85em; color: #888;">* 請先完成匯款，再點擊下方按鈕填寫訂單資訊</p>
+    </div>
 
-        <button type="button" class="submit-btn" onclick="sendEmail()">✅ 確認資訊並寄出郵件</button>
-    </form>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdS-bx8ei3aA2oPDWpYBTXStDPd6381HChAM9-a-N1KhrIFjw/viewform" class="btn">👉 開始填寫訂購資訊</a>
+
 </div>
-
-<script>
-    function sendEmail() {
-        const name = document.getElementById('petName').value;
-        const phone = document.getElementById('parentPhone').value;
-        const features = document.getElementById('features').value;
-        const lastFive = document.getElementById('bankLastFive').value;
-        const ig = document.getElementById('igLink').value || '未提供';
-
-        if (!name || !phone || !features || !lastFive) { alert('請完整填寫資訊喔！'); return; }
-
-        const subject = encodeURIComponent(`【GodiVanLife 訂製】${name} 的製作資料`);
-        const body = encodeURIComponent(
-            `您好，我要訂製 NFC 寵物智慧吊牌：\n\n` +
-            `🐶 寶貝姓名：${name}\n` +
-            `📞 家長電話：${phone}\n` +
-            `✨ 寶貝特色：${features}\n` +
-            `📸 IG 連結：${ig}\n\n` +
-            `--- 匯款核對 ---\n` +
-            `💰 帳號後五碼：${lastFive}\n` +
-            `收款帳號：20721000317223 (蕭維廷)\n\n` +
-            `※ 提示：請記得夾帶「寶貝的照片」再寄出郵件！`
-        );
-
-        window.location.href = `mailto:godivanlife@gmail.com?subject=${subject}&body=${body}`;
-    }
-</script>
 
 </body>
 </html>
