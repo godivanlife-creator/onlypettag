@@ -10,6 +10,8 @@
             --bg-light: #FDFBF8;
             --price-red: #E53935;
             --card-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            --line-green: #06C755;
+            --ig-pink: #E1306C;
         }
 
         body {
@@ -66,9 +68,17 @@
         .btn-pay {
             display: block; background: var(--brand-orange); color: white; text-align: center;
             padding: 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 18px; margin-top: 15px;
-            transition: 0.2s;
         }
-        .btn-pay:active { transform: scale(0.96); }
+
+        /* 社交按鈕區 */
+        .social-row { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-social {
+            flex: 1; text-align: center; padding: 12px; border-radius: 15px;
+            text-decoration: none; color: white; font-size: 14px; font-weight: bold;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        .btn-line { background: var(--line-green); }
+        .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     </style>
 </head>
 <body>
@@ -96,7 +106,7 @@
         <img src="https://raw.githubusercontent.com/godivanlife-creator/onlypettag/main/temp.JPG" class="product-img">
         <div class="product-info">
             <span class="product-name">🐾 一般款吊牌 (隨機)</span>
-            <span class="product-desc">隨機圖案 + 姓名 + nfc定位網頁</span>
+            <span class="product-desc">隨機圖案 + 姓名 + 定位網頁</span>
             <span class="product-price">$150</span>
         </div>
         <div class="quantity-ctrl">
@@ -110,7 +120,7 @@
         <img src="https://raw.githubusercontent.com/godivanlife-creator/onlypettag/main/_DSF1908.JPG" class="product-img">
         <div class="product-info">
             <span class="product-name">💡 客製化寵物燈箱</span>
-            <span class="product-desc">3D列印藝術燈飾</span>
+            <span class="product-desc">3D 浮雕藝術燈飾</span>
             <span class="product-price">$1280</span>
         </div>
         <div class="quantity-ctrl">
@@ -137,18 +147,20 @@
     <div class="checkout-box">
         <div class="summary-line"><span>產品小計</span><span id="subtotal">$0</span></div>
         <div class="summary-line"><span>運費 (滿 3 件免運)</span><span id="shipping">$0</span></div>
-        
         <div class="total-line">
             <strong>應匯款總額</strong>
             <span class="total-amount" id="total">$0</span>
         </div>
-
         <div class="bank-details">
             🏦 <strong>台新銀行 (812)</strong><br>
             帳號：<strong>20721000317223</strong>
         </div>
-
         <a href="#" class="btn-pay" onclick="goToForm()">我已完成匯款，填寫資料 ➡️</a>
+
+        <div class="social-row">
+            <a href="https://lin.ee/VbKQI9y" target="_blank" class="btn-social btn-line">Line 客服</a>
+            <a href="https://www.instagram.com/godi_van_life?igsh=MWlzNzVwbHZ4azhnaw%3D%3D&utm_source=qr" target="_blank" class="btn-social btn-ig">Instagram</a>
+        </div>
     </div>
 </div>
 
@@ -167,7 +179,6 @@
         let subtotal = (cart.smart * prices.smart) + (cart.basic * prices.basic) + (cart.light * prices.light) + (cart.hanger * prices.hanger);
         let totalItems = cart.smart + cart.basic + cart.light + cart.hanger;
         let shipping = (totalItems > 0 && totalItems < 3) ? 60 : 0;
-        
         document.getElementById('subtotal').innerText = `$${subtotal}`;
         document.getElementById('shipping').innerText = `$${shipping}`;
         document.getElementById('total').innerText = `$${subtotal + shipping}`;
@@ -177,20 +188,12 @@
     function goToForm() {
         const results = calculate();
         if (results.total === 0) { alert("請先選購商品數量喔！"); return; }
-
         let itemsSummary = [];
-        for (let key in cart) {
-            if (cart[key] > 0) itemsSummary.push(`${names[key]}x${cart[key]}`);
-        }
+        for (let key in cart) { if (cart[key] > 0) itemsSummary.push(`${names[key]}x${cart[key]}`); }
         let summaryText = itemsSummary.join(", ");
-
         const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf5b1drFHKBH34GsyYS4BYyx8Hn51dBz0rXkAfkDD1A14HQbw/viewform";
-        // 自動帶入：品項(entry.1011208744) 與 金額(entry.1823562896)
         const prefillUrl = `${baseUrl}?usp=pp_url&entry.1011208744=${encodeURIComponent(summaryText)}&entry.1823562896=${results.total}`;
-
-        if (confirm(`總金額為 $${results.total}，確認已完成匯款？`)) {
-            window.location.href = prefillUrl;
-        }
+        if (confirm(`總金額為 $${results.total}，確認已完成匯款？`)) { window.location.href = prefillUrl; }
     }
 </script>
 
